@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul id = "city">
+        <li>北京</li>
+        <li id="sh"><div>上海</div></li>
+        <li>深圳</li>
+        <li>广州</li>
+    </ul>
+    <input type="button" value="改标签" onclick="changeElement()">
+<!--    <input type="button" value="删除" onclick="removelabel()">-->
+    <script>
+        function changeElement(){
+            let sh = document.getElementById("sh");
+            sh.innerHTML = "<div>长沙<div/>"
+        }
+    </script>
+</body>
+</html>

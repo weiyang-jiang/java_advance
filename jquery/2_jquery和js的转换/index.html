@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>转换</title>
+    <script src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+    <input type="text" value="张三" id="ipt">
+    <script>
+        var element = document.getElementById("ipt");
+        // var value = element.value;
+        // console.log(value)
+
+        var value = $("#ipt").val();
+
+        // js -> jquery
+        var val = $(element).val();
+
+        // jquery -> js jquery 本质是一个数组
+        var jqueryElement = $("#ipt");
+        console.log(jqueryElement[0].value)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div>
+        <img src="../img/banner_1.jpg" width="500" height="130">
+    </div>
+
+    <script>
+        let srclist = ["../img/banner_1.jpg", "../img/banner_2.jpg", "../img/banner_3.jpg"]
+        let i = 0
+        setInterval(function (){
+            i++
+            document.querySelector("img").setAttribute("src", srclist[i%3])
+        }, 3000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="password" id="pwd1">
+<input type="button" value="显示密码" onmousedown="fn1()" onmouseup="fn2()">
+    <script>
+        function fn1(){
+            document.querySelector("#pwd1").setAttribute("type", "text")
+        }
+        function fn2(){
+            document.querySelector("#pwd1").setAttribute("type", "password")
+        }
+    </script>
+</body>
+</html>

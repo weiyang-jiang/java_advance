@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="d1">hello div1</div>
+    <div class="c1">hello div2</div>
+    <div class="c1">hello div3</div>
+    <span name="span1">dsad</span>
+    <script>
+        let element1 = document.getElementById("d1");
+        console.log(element1)
+        let elementsByClassName = document.getElementsByClassName("c1");
+        for (let elementsByClassNameElement of elementsByClassName) {
+            console.log(elementsByClassNameElement)
+        }
+        let elementsByName = document.getElementsByName("span1");
+        console.log(elementsByName)
+
+        let element = document.querySelector("#d1");
+        let elementall = document.querySelector(".c1");
+        let e = document.querySelector("div[id='d1']") // 可以用css选择器选择。
+
+    </script>
+</body>
+</html>

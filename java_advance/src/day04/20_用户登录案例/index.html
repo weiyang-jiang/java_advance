@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>验证注册页面</title>
+        <style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+				font-size: 12px;
+				line-height: 20px;
+			}
+			.main {
+				width: 525px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			.hr_1 {
+				font-size: 14px;
+				font-weight: bold;
+				color: #3275c3;
+				height: 35px;
+				border-bottom-width: 2px;
+				border-bottom-style: solid;
+				border-bottom-color: #3275c3;
+				vertical-align: bottom;
+				padding-left: 12px;
+			}
+			.left {
+				text-align: right;
+				width: 80px;
+				height: 25px;
+				padding-right: 5px;
+			}
+			.center {
+				width: 280px;
+			}
+			.in {
+				width: 130px;
+				height: 16px;
+				border: solid 1px #79abea;
+			}
+
+			.red {
+				color: #cc0000;
+				font-weight: bold;
+			}
+
+			div {
+				color: #F00;
+			}
+        </style>
+        <script type="text/javascript">
+        </script>
+    </head>
+
+    <body>
+        <form action="#" method="post" id="myform" onsubmit="return checkForm()">
+            <table class="main" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                    <td><img src="img/logo.jpg" alt="logo" /><img src="img/banner.jpg" alt="banner" /></td>
+                </tr>
+                <tr>
+                    <td class="hr_1">新用户注册</td>
+                </tr>
+                <tr>
+                    <td style="height:10px;"></td>
+                </tr>
+                <tr>
+                    <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td class="left">用户名：</td>
+                            <td class="center">
+                                 <input id="username" name="user" type="text" class="in" onfocus="showUsernameTips()"
+                                 onblur="checkUsername(this.value)"/>
+                                 <span id="usernamespan" style="color: red" ></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left">密码：</td>
+                            <td class="center">
+                            <input id="pwd" name="pwd" type="password" class="in" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left">确认密码：</td>
+                            <td class="center">
+                            <input id="repwd" name="repwd" type="password" class="in"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left">电子邮箱：</td>
+                            <td class="center">
+                            <input id="email" name="email" type="text" class="in"/>
+                            </td>
+                        </tr>
+                        <tr>
+                           <!-- 以1开头, 第二为是3,4,5,7,8的11位数字-->
+                            <td class="left">手机号码：</td>
+                            <td class="center">
+                                 <input id="mobile" name="mobile" type="text" class="in" />
+                                <span id="mobilespan"></span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left">生日：</td>
+                            <td class="center">
+                            <input id="birth" name="birth" type="text" class="in"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="left">&nbsp;</td>
+                            <td class="center">
+                            <input name="" type="image" src="img/register.jpg"/>
+                            </td>
+                        </tr>
+                    </table></td>
+                </tr>
+            </table>
+        </form>
+        <script>
+            function showUsernameTips(){
+                document.querySelector("#usernamespan").innerHTML = "用户名必须是英文字母开头4-16位"
+            }
+            function checkUsername(value){
+                let username_test = /^[a-zA-Z]\S{3,15}$/.test(value)
+                if (username_test){
+                    document.querySelector("#usernamespan").innerHTML = "<img src='img/gou.png' width='10' height='10'>"
+                }else {
+                    document.querySelector("#usernamespan").innerHTML = "用户名违规"
+                }
+            }
+            window.onload = function (){
+
+                let register_img = document.querySelector("input[type='image']");
+                register_img.onclick = function (){
+                    let birth = document.querySelector("#birth").value;
+                    let repwd = document.querySelector("#repwd").value;
+                    let email = document.querySelector("#email").value;
+                    let pwd = document.querySelector("#pwd").value;
+                    let username = document.querySelector("#username").value;
+                    let mobile = document.querySelector("#mobile").value;
+                    let mobile_test = /^1[3-8][0-9]{9}$/.test(mobile);
+                    var pattern = /^((19[2-9]\d{1})|(20((0[0-9])|(1[0-8]))))\-((0?[1-9])|(1[0-2]))\-((0?[1-9])|([1-2][0-9])|30|31)$/;
+                    let birth_test = pattern.test(birth);
+                    let pwd_test = /^\S{8,16}$/.test(pwd)
+                    let username_test = /^[a-zA-Z]\S{3,15}$/.test(username)
+                    let email_test = /^[a-zA-Z]\w{1,18}@[0-9a-zA-Z]{1,18}.[0-9a-zA-Z]{2,18}(.[0-9a-zA-Z]{2,18})?$/.test(email)
+                    if (!username_test){
+                        alert("用户名违规")
+                        return
+                    }
+                    if (!pwd_test){
+                        alert("密码违规")
+                        return
+                    }
+                    if (repwd !== pwd){
+                        alert("确认密码错误")
+                        return
+                    }
+                    if (!email_test){
+                        alert("邮箱违规")
+                        return
+                    }
+                    if (!mobile_test){
+                        alert("手机号码违规")
+                        return
+                    }
+                    if(!birth_test){
+                        alert("出生日期违规")
+                        return
+                    }
+                    alert("注册成功")
+                    return
+
+                }
+            }
+        </script>
+    </body>
+</html>

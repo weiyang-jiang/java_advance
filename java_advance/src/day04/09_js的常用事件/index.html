@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input  type="text" id="ipt">
+    <select id="city">
+        <option value="beijing">北京</option>
+        <option value="shenzhen">深圳</option>
+        <option value="shanghai">上海</option>
+        <option value="guangzhuo">广州</option>
+    </select>
+    <script>
+        // 这句代码是在整个网页加载完执行
+        window.onload = function (){
+            let city = document.getElementById("city");
+            city.onchange = function (){
+                console.log(city.value)
+            } // 下拉选框获取改变状态
+            let elementById = document.getElementById("ipt");
+
+
+            elementById.onfocus = function (){
+                // 这个是绑定获得焦点
+                console.log("获得焦点")
+            }
+            elementById.onblur = function (){
+                console.log("失去焦点。。。")
+            }
+            // 给输入框绑定鼠标移入事件
+            elementById.onmouseenter = function (){
+                console.log("鼠标移入")
+            }
+            // 给输入框绑定鼠标移出事件
+            elementById.onmouseleave = function (){
+                console.log("鼠标移出")
+            }
+            // 键盘案件按下事件
+            // elementById.onkeydown = function (){
+            //     console.log("键盘按下")
+            // }
+            elementById.onkeyup = function (){
+                console.log(elementById.value)
+            }
+        }
+    </script>
+</body>
+</html>

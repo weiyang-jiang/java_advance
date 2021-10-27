@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        // 每隔几秒钟换一张
+        setTimeout(function (){
+            document.write("hello world")
+        }, 3000) // 定时3秒往页面添加文字
+        let i = 0
+        let interval = setInterval(function (){
+            i++
+            document.write("hello world")
+            if (i == 5){
+                clearInterval(interval) // 清除定时器
+            }
+        }, 3000); // 间隔三秒会添加文字，返回id
+
+
+    </script>
+</body>
+</html>

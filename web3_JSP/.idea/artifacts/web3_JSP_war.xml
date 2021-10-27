@@ -1,0 +1,16 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="web3_JSP:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>false</exploded>
+        <module>web3_JSP</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="archive" name="web3_JSP-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="web3_JSP:war exploded" />
+    </root>
+  </artifact>
+</component>

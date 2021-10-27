@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <input type="button" value="按钮" onclick="fn1()">
+<!--    给按钮绑定事件， 点击按钮就执行指定js函数
+        1. 静态绑定， 直接在标签上绑定
+-->
+    <input type="button" value="另一个按钮" id="btn">
+    <script>
+        function fn1(){
+            alert("点击了")
+        }
+        let btn = document.getElementById("btn");
+        // btn.onclick = fn1
+        btn.onclick = function (){
+            alert("你好")
+        } // 这种属于匿名函数
+    </script>
+</body>
+</html>

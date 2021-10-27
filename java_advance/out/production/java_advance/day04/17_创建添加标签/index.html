@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul id = "city">
+        <li>北京</li>
+        <li id="sh">上海</li>
+        <li>深圳</li>
+        <li>广州</li>
+    </ul>
+    <input type="button" value="添加" onclick="fn1()">
+    <input type="button" value="删除" onclick="removelabel()">
+    <script>
+      function fn1(){
+          if (!document.querySelector("#changsha")){
+              let Lielement = document.createElement("li");
+              Lielement.innerText = "长沙"
+              Lielement.id = "changsha"
+              let city = document.getElementById("city");
+              city.appendChild(Lielement)
+          }else {
+              alert("添加过了，不用再添加了")
+          }
+
+      }
+
+      function removelabel(){
+          let changsha = document.querySelector("#changsha");
+          if(changsha){
+              changsha.remove()
+          }else {
+              alert("没有了，别删了")
+          }
+      }
+    </script>
+</body>
+</html>
